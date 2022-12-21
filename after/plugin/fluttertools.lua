@@ -7,7 +7,7 @@ flutter.setup({
     decorations = {
         statusline = {
             app_version = false,
-            device = false,
+            device = true,
         }
     },
 })
