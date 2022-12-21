@@ -1,4 +1,3 @@
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -16,7 +15,7 @@ return require('packer').startup(function(use)
         as = "oxocarbon",
         config = function()
             vim.cmd("colorscheme oxocarbon")
-        end	
+        end
     }
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
@@ -51,4 +50,5 @@ return require('packer').startup(function(use)
     use 'andweeb/presence.nvim'
 
     use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
 end)
