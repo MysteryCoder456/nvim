@@ -189,6 +189,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/rehatbir/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/Users/rehatbir/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
   }
 }
 
