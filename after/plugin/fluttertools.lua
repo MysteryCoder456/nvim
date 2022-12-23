@@ -10,4 +10,7 @@ flutter.setup({
             device = true,
         }
     },
+    dev_log = {
+        enabled = false,
+    },
 })
