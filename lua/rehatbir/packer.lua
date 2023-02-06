@@ -72,4 +72,6 @@ return require('packer').startup(function(use)
     use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
 
     use { 'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
+
+    use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
 end)
