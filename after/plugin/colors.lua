@@ -1,8 +1,8 @@
 function ColorMyPencils(color, airline)
-    color = color or "oxocarbon"
+    color = color or "catppuccin-mocha"
     vim.cmd.colorscheme(color)
 
-    airline = airline or "night_owl"
+    airline = airline or "base16_outrun_dark"
     vim.cmd.AirlineTheme(airline)
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

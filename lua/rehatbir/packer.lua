@@ -10,13 +10,15 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+    -- THEMES
+
     use {
         "nyoom-engineering/oxocarbon.nvim",
         as = "oxocarbon",
-        config = function()
-            vim.cmd("colorscheme oxocarbon")
-        end
     }
+    use { "catppuccin/nvim", as = "catppuccin" }
+
+    -- THEMES
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'nvim-treesitter/playground'
