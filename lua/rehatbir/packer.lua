@@ -16,7 +16,9 @@ return require('packer').startup(function(use)
         "nyoom-engineering/oxocarbon.nvim",
         as = "oxocarbon",
     }
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use { "catppuccin/nvim", as = "catppuccin", coroutine = function()
+        require("catpuccin").setup()
+    end }
 
     -- THEMES
 
