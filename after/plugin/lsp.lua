@@ -4,7 +4,7 @@ lsp.preset('recommended')
 
 lsp.ensure_installed({
     "pyright",
-    "sumneko_lua",
+    "lua_ls",
     "rust_analyzer",
     "denols",
 })
