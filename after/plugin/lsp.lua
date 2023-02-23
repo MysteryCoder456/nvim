@@ -6,7 +6,6 @@ lsp.ensure_installed({
     "pyright",
     "sumneko_lua",
     "rust_analyzer",
-    "denols",
 })
 
 local cmp = require("cmp")
