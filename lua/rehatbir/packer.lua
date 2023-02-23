@@ -78,4 +78,6 @@ return require('packer').startup(function(use)
     use { 'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
 
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
+
+    use "tpope/vim-surround"
 end)
