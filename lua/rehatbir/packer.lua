@@ -4,26 +4,38 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
 
-    -- THEMES
+    -- ==================== THEMES ====================
 
     use {
         "nyoom-engineering/oxocarbon.nvim",
         as = "oxocarbon",
     }
+
     use { "catppuccin/nvim", as = "catppuccin", coroutine = function()
         require("catpuccin").setup()
     end }
 
-    -- THEMES
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    -- ============= EDITOR FUNCTIONALITY =============
+
+    use "tpope/vim-surround"
+    use "jiangmiao/auto-pairs"
+    use 'lukas-reineke/indent-blankline.nvim'
     use 'nvim-treesitter/playground'
+
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
+    use { 'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
+
+
+    -- ==================== OTHERS ====================
+
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
     use 'mbbill/undotree'
 
@@ -66,18 +78,10 @@ return require('packer').startup(function(use)
         end
     }
 
-    use 'lukas-reineke/indent-blankline.nvim'
-
-    use({
+    use {
         "jose-elias-alvarez/null-ls.nvim",
         requires = { "nvim-lua/plenary.nvim" },
-    })
+    }
 
     use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
-
-    use { 'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
-
-    use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
-
-    use "tpope/vim-surround"
 end)
