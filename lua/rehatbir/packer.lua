@@ -78,6 +78,8 @@ return require('packer').startup(function(use)
 
     use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
 
+    use "ray-x/lsp_signature.nvim"
+
 
     -- ==================== OTHERS ====================
 
