@@ -28,9 +28,6 @@ return require('packer').startup(function(use)
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
     use { 'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
 
-
-    -- ==================== OTHERS ====================
-
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
@@ -38,6 +35,9 @@ return require('packer').startup(function(use)
     }
 
     use 'mbbill/undotree'
+
+
+    -- ===================== LSP ======================
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -63,13 +63,6 @@ return require('packer').startup(function(use)
 
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-    use 'andweeb/presence.nvim'
-
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
-
-    use 'airblade/vim-gitgutter'
-
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -84,4 +77,14 @@ return require('packer').startup(function(use)
     }
 
     use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+
+
+    -- ==================== OTHERS ====================
+
+    use 'andweeb/presence.nvim'
+
+    use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
+
+    use 'airblade/vim-gitgutter'
 end)
