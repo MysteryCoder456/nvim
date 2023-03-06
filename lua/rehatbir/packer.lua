@@ -4,28 +4,40 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+
+    -- ==================== THEMES ====================
+
+    use {
+        "nyoom-engineering/oxocarbon.nvim",
+        as = "oxocarbon",
+    }
+
+    use { "catppuccin/nvim", as = "catppuccin", coroutine = function()
+        require("catpuccin").setup()
+    end }
+
+
+    -- ============= EDITOR FUNCTIONALITY =============
+
+    use "tpope/vim-surround"
+    use "jiangmiao/auto-pairs"
+    use 'lukas-reineke/indent-blankline.nvim'
+    use 'nvim-treesitter/playground'
+
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
+    use { 'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    -- THEMES
-
-    use {
-        "nyoom-engineering/oxocarbon.nvim",
-        as = "oxocarbon",
-    }
-    use { "catppuccin/nvim", as = "catppuccin", coroutine = function()
-        require("catpuccin").setup()
-    end }
-
-    -- THEMES
-
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    use 'nvim-treesitter/playground'
-
     use 'mbbill/undotree'
+
+
+    -- ===================== LSP ======================
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -51,13 +63,6 @@ return require('packer').startup(function(use)
 
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-    use 'andweeb/presence.nvim'
-
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
-
-    use 'airblade/vim-gitgutter'
-
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -66,16 +71,22 @@ return require('packer').startup(function(use)
         end
     }
 
-    use 'lukas-reineke/indent-blankline.nvim'
-
-    use({
+    use {
         "jose-elias-alvarez/null-ls.nvim",
         requires = { "nvim-lua/plenary.nvim" },
-    })
+    }
 
     use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
 
-    use { 'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
+    use "ray-x/lsp_signature.nvim"
 
-    use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
+
+    -- ==================== OTHERS ====================
+
+    use 'andweeb/presence.nvim'
+
+    use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
+
+    use 'airblade/vim-gitgutter'
 end)

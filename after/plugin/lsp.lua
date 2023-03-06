@@ -37,7 +37,7 @@ lsp.setup_nvim_cmp({
 
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-vim.keymap.set("n", "F", function() vim.lsp.buf.format() end, opts)
+vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, opts)
 vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
 vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
 vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
@@ -47,3 +47,6 @@ lsp.setup()
 vim.diagnostic.config {
     virtual_text = true,
 }
+
+-- Format on save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
