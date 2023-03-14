@@ -10,7 +10,9 @@ lsp.ensure_installed({
 lsp.configure("rust_analyzer", {
     settings = {
         ["rust-analyzer"] = {
-            "--all-features",
+            ["cargo"] = {
+                features = "all",
+            }
         }
     }
 })
@@ -50,11 +52,11 @@ vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opt
 vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
 vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 
+lsp.setup()
+
 vim.diagnostic.config {
     virtual_text = true,
 }
 
 -- Format on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
-
-lsp.setup()
