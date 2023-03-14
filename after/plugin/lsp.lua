@@ -7,16 +7,6 @@ lsp.ensure_installed({
     "rust_analyzer",
 })
 
-lsp.configure("rust_analyzer", {
-    settings = {
-        ["rust-analyzer"] = {
-            ["cargo"] = {
-                features = "all",
-            }
-        }
-    }
-})
-
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
