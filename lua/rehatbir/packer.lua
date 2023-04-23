@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
         require("catpuccin").setup()
     end }
 
+    use { "savq/melange-nvim", as = "melange", }
 
     -- ============= EDITOR FUNCTIONALITY =============
 

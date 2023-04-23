@@ -1,8 +1,10 @@
 function ColorMyPencils(color, airline)
-    color = color or "catppuccin-mocha"
+    vim.opt.termguicolors = true
+
+    color = color or "melange"
     vim.cmd.colorscheme(color)
 
-    airline = airline or "base16_outrun_dark"
+    airline = airline or "zenburn"
     vim.cmd.AirlineTheme(airline)
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
