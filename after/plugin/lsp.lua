@@ -5,7 +5,7 @@ lsp.preset('recommended')
 lsp.ensure_installed({
     "pyright",
     "rust_analyzer",
-    "html"
+    "emmet_ls"
 })
 
 local cmp = require("cmp")
