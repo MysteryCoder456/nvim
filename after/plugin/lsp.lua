@@ -45,6 +45,22 @@ vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 
 lsp.setup()
 
+local null_ls = require("null-ls")
+local null_opts = lsp.build_options('null-ls', {})
+
+null_ls.setup {
+    on_attach = function(client, bufnr)
+        null_opts.on_attach(client, bufnr)
+    end,
+    sources = {
+        null_ls.builtins.diagnostics.ruff,
+        null_ls.builtins.formatting.black.with({ extra_args = { "-l", "79" } }),
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.gdformat,
+        null_ls.builtins.diagnostics.gdlint,
+    }
+}
+
 vim.diagnostic.config {
     virtual_text = true,
 }
