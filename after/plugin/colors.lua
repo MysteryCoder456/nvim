@@ -1,7 +1,7 @@
 function ColorMyPencils(color, airline)
     vim.opt.termguicolors = true
 
-    color = color or "melange"
+    color = color or "catppuccin-macchiato"
     vim.cmd.colorscheme(color)
 
     airline = airline or "zenburn"
