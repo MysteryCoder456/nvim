@@ -56,7 +56,6 @@ null_ls.setup {
         null_ls.builtins.diagnostics.ruff,
         null_ls.builtins.diagnostics.gdlint,
         null_ls.builtins.diagnostics.djlint,
-        null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.formatting.black.with({ extra_args = { "-l", "79" } }),
         null_ls.builtins.formatting.rome,
         null_ls.builtins.formatting.gdformat,
