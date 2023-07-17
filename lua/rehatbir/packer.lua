@@ -18,6 +18,12 @@ return require('packer').startup(function(use)
 
     use { "savq/melange-nvim", as = "melange", }
 
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons' }
+    }
+
+
     -- ============= EDITOR FUNCTIONALITY =============
 
     use "tpope/vim-surround"
@@ -85,9 +91,5 @@ return require('packer').startup(function(use)
     -- ==================== OTHERS ====================
 
     use 'andweeb/presence.nvim'
-
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
-
     use 'airblade/vim-gitgutter'
 end)
