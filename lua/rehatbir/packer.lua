@@ -12,9 +12,13 @@ return require('packer').startup(function(use)
         as = "oxocarbon",
     }
 
-    use { "catppuccin/nvim", as = "catppuccin", coroutine = function()
-        require("catpuccin").setup()
-    end }
+    use {
+        "catppuccin/nvim",
+        as = "catppuccin",
+        coroutine = function()
+            require("catpuccin").setup()
+        end
+    }
 
     use { "savq/melange-nvim", as = "melange", }
 
@@ -30,10 +34,14 @@ return require('packer').startup(function(use)
     use "jiangmiao/auto-pairs"
     use 'lukas-reineke/indent-blankline.nvim'
     use 'nvim-treesitter/playground'
-
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
     use { 'ThePrimeagen/harpoon', requires = 'nvim-lua/plenary.nvim' }
+
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use {
+        'nvim-treesitter/nvim-treesitter-context',
+        requires = { 'nvim-treesitter/nvim-treesitter' }
+    }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -92,4 +100,17 @@ return require('packer').startup(function(use)
 
     use 'andweeb/presence.nvim'
     use 'airblade/vim-gitgutter'
+
+    use({
+        "utilyre/barbecue.nvim",
+        tag = "*",
+        requires = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        after = "nvim-web-devicons",       -- keep this if you're using NvChad
+        config = function()
+            require("barbecue").setup()
+        end,
+    })
 end)
