@@ -4,7 +4,7 @@ function ColorMyPencils(color, lualine)
     color = color or "catppuccin-macchiato"
     vim.cmd.colorscheme(color)
 
-    lualine = lualine or "nightfly"
+    lualine = lualine or "catppuccin"
     require("lualine").setup {
         option = {
             theme = lualine
