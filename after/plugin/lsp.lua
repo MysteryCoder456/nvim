@@ -1,12 +1,15 @@
 local lsp = require('lsp-zero')
+local lspconfig = require("lspconfig")
 
 lsp.preset('recommended')
 
 lsp.ensure_installed({
     "pyright",
     "rust_analyzer",
-    "emmet_ls"
+    "emmet_ls",
 })
+lspconfig.sourcekit.setup {}
+lspconfig.ruff_lsp.setup {}
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -53,7 +56,7 @@ null_ls.setup {
         null_opts.on_attach(client, bufnr)
     end,
     sources = {
-        null_ls.builtins.diagnostics.ruff,
+        -- TODO: Move all these to lspconfig sources
         null_ls.builtins.diagnostics.gdlint,
         null_ls.builtins.diagnostics.djlint,
         null_ls.builtins.formatting.black.with({ extra_args = { "-l", "79" } }),
