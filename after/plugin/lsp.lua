@@ -8,7 +8,6 @@ lsp.ensure_installed({
     "rust_analyzer",
     "emmet_ls",
 })
-lspconfig.sourcekit.setup {}
 lspconfig.ruff_lsp.setup {}
 
 local cmp = require("cmp")
