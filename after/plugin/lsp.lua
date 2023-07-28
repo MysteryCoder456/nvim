@@ -7,8 +7,13 @@ lsp.ensure_installed({
     "pyright",
     "rust_analyzer",
     "emmet_ls",
+    "ruff_lsp",
 })
-lspconfig.ruff_lsp.setup {}
+lspconfig.sourcekit.setup {}
+lspconfig.rome.setup {
+    cmd = { "--indent-style", "space", "--indent-size", "4" }
+}
+lspconfig.gdscript.setup {}
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -56,12 +61,12 @@ null_ls.setup {
     end,
     sources = {
         -- TODO: Move all these to lspconfig sources
-        null_ls.builtins.diagnostics.gdlint,
         null_ls.builtins.diagnostics.djlint,
+        null_ls.builtins.diagnostics.swiftlint,
         null_ls.builtins.formatting.black.with({ extra_args = { "-l", "79" } }),
-        null_ls.builtins.formatting.rome.with({ extra_args = { "--indent-style", "space", "--indent-size", "4" } }),
         null_ls.builtins.formatting.gdformat,
         null_ls.builtins.formatting.djhtml,
+        null_ls.builtins.formatting.swiftformat,
     }
 }
 
