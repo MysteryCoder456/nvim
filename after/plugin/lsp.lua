@@ -65,6 +65,7 @@ null_ls.setup {
         -- TODO: Move all these to lspconfig sources
         null_ls.builtins.diagnostics.djlint,
         null_ls.builtins.diagnostics.swiftlint,
+        null_ls.builtins.diagnostics.gdlint,
         null_ls.builtins.formatting.black.with({ extra_args = { "-l", "79" } }),
         null_ls.builtins.formatting.gdformat,
         null_ls.builtins.formatting.djhtml,
