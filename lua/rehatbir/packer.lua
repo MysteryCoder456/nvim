@@ -91,7 +91,7 @@ return require("packer").startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
     }
 
-    -- use { "codota/tabnine-nvim", run = "./dl_binaries.sh" }
+    use { "codota/tabnine-nvim", run = "./dl_binaries.sh" }
 
     use "ray-x/lsp_signature.nvim"
 
