@@ -14,6 +14,7 @@ lspconfig.rome.setup {
     cmd = { "--indent-style", "space", "--indent-size", "4" }
 }
 lspconfig.gdscript.setup {}
+lspconfig.glsl_analyzer.setup {}
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
