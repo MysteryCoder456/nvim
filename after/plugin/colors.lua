@@ -1,10 +1,10 @@
 function ColorMyPencils(color, lualine)
     vim.opt.termguicolors = true
 
-    color = color or "catppuccin-macchiato"
+    color = color or "kanagawa"
     vim.cmd.colorscheme(color)
 
-    lualine = lualine or "catppuccin"
+    lualine = lualine or "kanagawa"
     require("lualine").setup {
         option = {
             theme = lualine

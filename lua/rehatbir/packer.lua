@@ -22,6 +22,8 @@ return require("packer").startup(function(use)
 
     use { "savq/melange-nvim", as = "melange", }
 
+    use "rebelot/kanagawa.nvim"
+
     use {
         "nvim-lualine/lualine.nvim",
         requires = { "nvim-tree/nvim-web-devicons" }
