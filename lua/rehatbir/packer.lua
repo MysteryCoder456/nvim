@@ -34,16 +34,8 @@ return require("packer").startup(function(use)
 
     use "tpope/vim-surround"
     use "jiangmiao/auto-pairs"
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("ibl").setup {
-                scope = {
-                    enable = false
-                }
-            }
-        end
-    }
+    use "lukas-reineke/indent-blankline.nvim"
+
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
     use { "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" }
 
