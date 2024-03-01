@@ -37,7 +37,11 @@ return require("packer").startup(function(use)
     use {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
-            require("ibl").setup()
+            require("ibl").setup {
+                scope = {
+                    enable = false
+                }
+            }
         end
     }
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
