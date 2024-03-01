@@ -34,8 +34,12 @@ return require("packer").startup(function(use)
 
     use "tpope/vim-surround"
     use "jiangmiao/auto-pairs"
-    use "lukas-reineke/indent-blankline.nvim"
-    use "nvim-treesitter/playground"
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require("ibl").setup()
+        end
+    }
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
     use { "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" }
 
@@ -47,7 +51,7 @@ return require("packer").startup(function(use)
 
     use {
         "nvim-telescope/telescope.nvim", branch = "0.1.x",
-        requires = { { "nvim-lua/plenary.nvim" } }
+        requires = { "nvim-lua/plenary.nvim" }
     }
 
     use "mbbill/undotree"
@@ -93,13 +97,22 @@ return require("packer").startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
     }
 
-    -- use { "codota/tabnine-nvim", run = "./dl_binaries.sh" }
-
     use "ray-x/lsp_signature.nvim"
 
 
     -- ==================== OTHERS ====================
 
+    use {
+        "Exafunction/codeium.vim",
+        config = function()
+            vim.keymap.set('i', '<C-y>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+            vim.keymap.set('i', '<c-n>', function() return vim.fn['codeium#CycleCompletions'](1) end,
+                { expr = true, silent = true })
+            vim.keymap.set('i', '<c-p>', function() return vim.fn['codeium#CycleCompletions'](-1) end,
+                { expr = true, silent = true })
+            vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+        end
+    }
     use "andweeb/presence.nvim"
     use "airblade/vim-gitgutter"
 
