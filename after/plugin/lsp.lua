@@ -9,7 +9,6 @@ lsp.preset('recommended')
 lspconfig.pyright.setup {}
 lspconfig.rust_analyzer.setup {}
 lspconfig.ruff_lsp.setup {}
-lspconfig.sourcekit.setup {}
 lspconfig.rome.setup {
     cmd = { "--indent-style", "space", "--indent-size", "4" }
 }
