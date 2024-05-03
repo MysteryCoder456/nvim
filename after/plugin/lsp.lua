@@ -15,6 +15,7 @@ lspconfig.rome.setup {
 lspconfig.gdscript.setup {}
 lspconfig.glsl_analyzer.setup {}
 lspconfig.clangd.setup {}
+lspconfig.cmake.setup {}
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
