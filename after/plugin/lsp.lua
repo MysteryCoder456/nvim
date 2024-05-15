@@ -6,7 +6,7 @@ local lspconfig = require("lspconfig")
 
 lsp.preset('recommended')
 
-lspconfig.pyright.setup {}
+lspconfig.basedpyright.setup {}
 lspconfig.rust_analyzer.setup {}
 lspconfig.ruff_lsp.setup {}
 lspconfig.rome.setup {
