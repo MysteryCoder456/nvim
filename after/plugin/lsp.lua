@@ -6,16 +6,17 @@ local lspconfig = require("lspconfig")
 
 lsp.preset('recommended')
 
-lspconfig.basedpyright.setup {}
+lspconfig.lua_ls.setup {}
+lspconfig.pyright.setup {}
 lspconfig.rust_analyzer.setup {}
 lspconfig.ruff_lsp.setup {}
-lspconfig.rome.setup {
-    cmd = { "--indent-style", "space", "--indent-size", "4" }
-}
 lspconfig.gdscript.setup {}
 lspconfig.glsl_analyzer.setup {}
 lspconfig.clangd.setup {}
 lspconfig.cmake.setup {}
+lspconfig.emmet_ls.setup {}
+lspconfig.biome.setup {}
+lspconfig.tailwindcss.setup {}
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -59,13 +60,12 @@ null_ls.setup {
         lsp_on_attach(client, bufnr)
     end,
     sources = {
-        -- TODO: Move all these to lspconfig sources
         null_ls.builtins.diagnostics.djlint,
-        null_ls.builtins.diagnostics.swiftlint,
         null_ls.builtins.diagnostics.gdlint,
+        null_ls.builtins.diagnostics.swiftlint,
         null_ls.builtins.formatting.black.with({ extra_args = { "-l", "79" } }),
+        null_ls.builtins.formatting.prettierd,
         null_ls.builtins.formatting.gdformat,
-        null_ls.builtins.formatting.djhtml,
         null_ls.builtins.formatting.swiftformat,
     }
 }
