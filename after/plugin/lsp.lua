@@ -60,6 +60,7 @@ null_ls.setup {
         lsp_on_attach(client, bufnr)
     end,
     sources = {
+        null_ls.builtins.diagnostics.checkmake,
         null_ls.builtins.diagnostics.djlint,
         null_ls.builtins.diagnostics.gdlint,
         null_ls.builtins.diagnostics.swiftlint,
