@@ -6,17 +6,26 @@ local lspconfig = require("lspconfig")
 
 lsp.preset('recommended')
 
-lspconfig.lua_ls.setup {}
+-- Python
 lspconfig.pyright.setup {}
-lspconfig.rust_analyzer.setup {}
 lspconfig.ruff_lsp.setup {}
-lspconfig.gdscript.setup {}
-lspconfig.glsl_analyzer.setup {}
+
+-- C-like languages
 lspconfig.clangd.setup {}
 lspconfig.cmake.setup {}
+lspconfig.glsl_analyzer.setup {}
+
+-- Web Dev
+lspconfig.html.setup {}
+lspconfig.cssls.setup {}
 lspconfig.emmet_ls.setup {}
 lspconfig.biome.setup {}
 lspconfig.tailwindcss.setup {}
+
+-- All-in-one's
+lspconfig.lua_ls.setup {}
+lspconfig.rust_analyzer.setup {}
+lspconfig.gdscript.setup {}
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
