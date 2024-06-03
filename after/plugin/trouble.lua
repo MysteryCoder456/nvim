@@ -6,12 +6,12 @@ require("trouble").setup {
                 type = "split",
                 relative = "win",
                 position = "right",
-                size = 0.3,
+                size = 0.5,
             },
         },
     },
 }
 
 vim.keymap.set("n", "<leader>vcp", function()
-    require("trouble").open("custom_mode")
+    require("trouble").toggle("custom_mode")
 end)
