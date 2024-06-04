@@ -1,1 +1,1 @@
-require("rehatbir")
+require("main")
