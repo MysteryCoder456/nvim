@@ -57,4 +57,9 @@ require("lazy").setup {
     {
         "jiangmiao/auto-pairs",
     },
+    {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    },
 }
