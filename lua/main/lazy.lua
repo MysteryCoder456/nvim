@@ -12,7 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
-    "rebelot/kanagawa.nvim",
+    {
+        "rebelot/kanagawa.nvim",
+    },
     {
         "stevearc/oil.nvim",
         opts = {},
@@ -33,12 +35,16 @@ require("lazy").setup {
             vim.cmd.TSUpdate()
         end,
     },
-    "nvim-treesitter/nvim-treesitter-context",
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+    },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
-    "tpope/vim-surround",
+    {
+        "tpope/vim-surround",
+    },
     {
         "jiaoshijie/undotree",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -47,5 +53,8 @@ require("lazy").setup {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" },
-    }
+    },
+    {
+        "jiangmiao/auto-pairs",
+    },
 }
