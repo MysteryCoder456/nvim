@@ -57,6 +57,14 @@ require("lazy").setup {
     {
         "jiangmiao/auto-pairs",
     },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter", -- Treesitter is used for scope highlighting
+        },
+    },
 
     -- LSP Related Plugins --
     {
