@@ -73,6 +73,10 @@ require("lazy").setup {
             "nvim-telescope/telescope.nvim",
         },
     },
+    {
+        "LunarVim/breadcrumbs.nvim",
+        dependencies = { "SmiteshP/nvim-navic" },
+    },
 
     -- LSP Related Plugins --
     {
