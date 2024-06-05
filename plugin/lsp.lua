@@ -10,6 +10,8 @@ require("mason-lspconfig").setup {
         "clangd",
         "cmake",
         "glsl_analyzer",
+        "html",
+        "cssls",
         "emmet_ls", "tailwindcss",
     },
 }
