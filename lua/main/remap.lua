@@ -16,6 +16,14 @@ vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
 vim.keymap.set("n", "<leader>5", function() harpoon:list():select(5) end)
 
+-- Trouble
+vim.keymap.set("n", "<leader>vpa", function()
+    require("trouble").toggle("custom_diagnostics")
+end)
+vim.keymap.set("n", "<leader>vpb", function()
+    require("trouble").toggle("custom_diagnostics_buffer")
+end)
+
 -- Pane switching
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
