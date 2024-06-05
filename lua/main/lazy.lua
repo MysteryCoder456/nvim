@@ -65,6 +65,14 @@ require("lazy").setup {
             "nvim-treesitter/nvim-treesitter", -- Treesitter is used for scope highlighting
         },
     },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "folke/trouble.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+    },
 
     -- LSP Related Plugins --
     {

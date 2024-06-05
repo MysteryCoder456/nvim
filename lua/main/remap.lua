@@ -24,6 +24,12 @@ vim.keymap.set("n", "<leader>vpb", function()
     require("trouble").toggle("custom_diagnostics_buffer")
 end)
 
+-- TODO comments
+vim.keymap.set("n", "<C-f><C-t>", vim.cmd.TodoTelescope)
+vim.keymap.set("n", "<leader>vpt", function()
+    require("trouble").toggle("todo")
+end)
+
 -- Pane switching
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
