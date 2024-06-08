@@ -119,3 +119,11 @@ vim.diagnostic.config {
 
 -- Format on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+-- Show function signature when calling functions
+vim.cmd [[
+    augroup lsp
+        autocmd!
+        autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
+    augroup END
+]]
