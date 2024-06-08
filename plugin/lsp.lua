@@ -121,6 +121,10 @@ vim.diagnostic.config {
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- Show function signature when calling functions
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+    vim.lsp.handlers.signature_help,
+    { focus = false, border = "rounded" }
+)
 vim.cmd [[
     augroup lsp
         autocmd!
