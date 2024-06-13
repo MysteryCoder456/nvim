@@ -9,6 +9,17 @@ local lsp_on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+
+    -- Format on save
+    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+    -- Show function signature when calling functions
+    vim.cmd [[
+    augroup lsp
+        autocmd!
+        autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
+    augroup END
+]]
 end
 
 require("mason").setup {}
@@ -107,7 +118,7 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
     vim.lsp.handlers.signature_help, {
-        border = _border
+        focus = false, border = _border
     }
 )
 
@@ -116,18 +127,3 @@ vim.diagnostic.config {
     virtual_text = true,
     float = { border = _border }
 }
-
--- Format on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
--- Show function signature when calling functions
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-    vim.lsp.handlers.signature_help,
-    { focus = false, border = "rounded" }
-)
-vim.cmd [[
-    augroup lsp
-        autocmd!
-        autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
-    augroup END
-]]
