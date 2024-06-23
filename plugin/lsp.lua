@@ -11,7 +11,7 @@ local lsp_on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 
     -- Format on save
-    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format({ async = true })]]
 
     -- Show function signature when calling functions
     vim.cmd [[
