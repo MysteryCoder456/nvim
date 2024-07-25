@@ -1,6 +1,6 @@
 local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local lsp_on_attach = function(client, bufnr)
+local lsp_on_attach = function(client, bufnr, async)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -11,15 +11,18 @@ local lsp_on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 
     -- Format on save
-    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format({ async = true })]]
+    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format({ async = async })]]
 
     -- Show function signature when calling functions
     vim.cmd [[
     augroup lsp
-        autocmd!
-        autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
+    autocmd!
+    autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
     augroup END
-]]
+    ]]
+
+    -- Inlay hints
+    vim.lsp.inlay_hint.enable(true)
 end
 
 require("mason").setup {}
@@ -43,7 +46,7 @@ require("mason-lspconfig").setup_handlers {
     -- a dedicated handler.
     function(server_name) -- default handler (optional)
         require("lspconfig")[server_name].setup {
-            on_attach = lsp_on_attach,
+            on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
             capabilities = cmp_capabilities,
         }
     end,
@@ -97,7 +100,7 @@ cmp.setup {
 
 local null_ls = require("null-ls")
 null_ls.setup {
-    on_attach = lsp_on_attach,
+    on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, false) end,
     sources = {
         null_ls.builtins.formatting.black.with({ extra_args = { "-l", "79" } }),
         null_ls.builtins.formatting.djlint.with({ filetypes = { "html", "django", "htmldjango" } }),
