@@ -77,6 +77,9 @@ require("lazy").setup {
         "LunarVim/breadcrumbs.nvim",
         dependencies = { "SmiteshP/nvim-navic" },
     },
+    {
+        "lewis6991/gitsigns.nvim",
+    },
 
     -- LSP Related Plugins --
     {
