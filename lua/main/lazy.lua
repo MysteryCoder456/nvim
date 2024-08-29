@@ -86,6 +86,7 @@ require("lazy").setup {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+        "github/copilot.vim",
     },
     {
         "hrsh7th/nvim-cmp",
@@ -104,5 +105,5 @@ require("lazy").setup {
         opts = {}, -- for default options, refer to the configuration section for custom setup.
         cmd = "Trouble",
         keys = {},
-    }
+    },
 }
