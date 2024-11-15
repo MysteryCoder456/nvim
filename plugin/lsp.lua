@@ -31,7 +31,7 @@ require("mason-lspconfig").setup {
         "lua_ls",
         "rust_analyzer",
         "pyright",
-        "ruff_lsp",
+        "ruff",
         "clangd",
         "cmake",
         "glsl_analyzer",
