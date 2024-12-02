@@ -116,4 +116,8 @@ require("lazy").setup {
         cmd = "Trouble",
         keys = {},
     },
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "VeryLazy",
+    },
 }

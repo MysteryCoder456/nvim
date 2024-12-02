@@ -13,12 +13,6 @@ local lsp_on_attach = function(client, bufnr, async)
     -- Format on save
     vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format({ async = async })]]
 
-    -- Show function signature when calling functions
-    vim.cmd [[
-        autocmd!
-        autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
-    ]]
-
     -- Inlay hints
     vim.lsp.inlay_hint.enable(true)
 end
