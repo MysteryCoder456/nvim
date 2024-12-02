@@ -15,10 +15,8 @@ local lsp_on_attach = function(client, bufnr, async)
 
     -- Show function signature when calling functions
     vim.cmd [[
-    augroup lsp
-    autocmd!
-    autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
-    augroup END
+        autocmd!
+        autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
     ]]
 
     -- Inlay hints
