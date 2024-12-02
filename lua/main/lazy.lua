@@ -86,6 +86,10 @@ require("lazy").setup {
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
+    {
+        'mcauley-penney/visual-whitespace.nvim',
+        config = true
+    },
 
     -- LSP Related Plugins --
     {
