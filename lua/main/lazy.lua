@@ -16,10 +16,6 @@ require("lazy").setup {
         "rebelot/kanagawa.nvim",
     },
     {
-        "olimorris/onedarkpro.nvim",
-        priority = 1000, -- Ensure it loads first
-    },
-    {
         "stevearc/oil.nvim",
         opts = {},
         -- Optional dependencies
