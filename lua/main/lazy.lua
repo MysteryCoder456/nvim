@@ -90,6 +90,10 @@ require("lazy").setup {
         'mcauley-penney/visual-whitespace.nvim',
         config = true
     },
+    {
+        "IogaMaster/neocord",
+        event = "VeryLazy"
+    },
 
     -- LSP Related Plugins --
     {
