@@ -24,12 +24,10 @@ require("mason-lspconfig").setup {
         "rust_analyzer",
         "pyright",
         "ruff",
-        "clangd",
-        "cmake",
-        "glsl_analyzer",
         "html",
         "cssls",
-        "emmet_ls", "tailwindcss",
+        "emmet_ls",
+        "tailwindcss",
     },
 }
 require("mason-lspconfig").setup_handlers {
@@ -47,6 +45,15 @@ require("mason-lspconfig").setup_handlers {
     -- ["rust_analyzer"] = function ()
     --     require("rust-tools").setup {}
     -- end
+    ["jdtls"] = function()
+        require("lspconfig")["jdtls"].setup {
+            on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
+            capabilities = cmp_capabilities,
+            config = {
+                single_file_support = true,
+            },
+        }
+    end
 }
 -- require("lspconfig")
 
