@@ -140,3 +140,14 @@ for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) d
         return default_diagnostic_handler(err, result, context, config)
     end
 end
+
+require("flutter-tools").setup {
+    decorations = {
+        statusline = {
+            device = true,
+        },
+    },
+    lsp = {
+        on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
+    },
+}

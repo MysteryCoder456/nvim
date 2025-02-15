@@ -124,4 +124,11 @@ require("lazy").setup {
         "ray-x/lsp_signature.nvim",
         event = "VeryLazy",
     },
+    {
+        'nvim-flutter/flutter-tools.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+    },
 }
