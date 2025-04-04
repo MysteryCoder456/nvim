@@ -100,7 +100,13 @@ require("lazy").setup {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+    },
+    {
         "github/copilot.vim",
+        config = function()
+            -- Disable Copilot on startup
+            vim.cmd [[Copilot disable]]
+        end
     },
     {
         "hrsh7th/nvim-cmp",
