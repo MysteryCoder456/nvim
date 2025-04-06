@@ -112,19 +112,11 @@ null_ls.setup {
 -- Hover window borders
 local _border = "rounded"
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-    vim.lsp.handlers.hover, {
-        border = _border
-    }
-)
+local old_hover = vim.lsp.buf.hover
+vim.lsp.buf.hover = function()
+    old_hover({ border = _border })
+end
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help, {
-        focus = false, border = _border
-    }
-)
-
--- Virtual text errors
 vim.diagnostic.config {
     virtual_text = true,
     float = { border = _border }
