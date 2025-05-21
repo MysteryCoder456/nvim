@@ -17,8 +17,20 @@ local lsp_on_attach = function(client, bufnr, async)
     vim.lsp.inlay_hint.enable(true)
 end
 
+-- Setup LSP handlers
+vim.lsp.config("*", {
+    on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
+    capabilities = cmp_capabilities,
+})
+vim.lsp.config("jdtls", {
+    on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
+    capabilities = cmp_capabilities,
+    single_file_support = true,
+})
+
 require("mason").setup {}
 require("mason-lspconfig").setup {
+    automatic_enable = true,
     ensure_installed = {
         "lua_ls",
         "rust_analyzer",
@@ -30,32 +42,6 @@ require("mason-lspconfig").setup {
         "tailwindcss",
     },
 }
-require("mason-lspconfig").setup_handlers {
-    -- The first entry (without a key) will be the default handler
-    -- and will be called for each installed server that doesn't have
-    -- a dedicated handler.
-    function(server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {
-            on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
-            capabilities = cmp_capabilities,
-        }
-    end,
-    -- Next, you can provide a dedicated handler for specific servers.
-    -- For example, a handler override for the `rust_analyzer`:
-    -- ["rust_analyzer"] = function ()
-    --     require("rust-tools").setup {}
-    -- end
-    ["jdtls"] = function()
-        require("lspconfig")["jdtls"].setup {
-            on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
-            capabilities = cmp_capabilities,
-            config = {
-                single_file_support = true,
-            },
-        }
-    end
-}
--- require("lspconfig")
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
