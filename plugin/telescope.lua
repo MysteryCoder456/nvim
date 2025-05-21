@@ -1,5 +1,5 @@
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-f><C-f>", builtin.find_files, {})
+vim.keymap.set("n", "<C-f><C-f>", function() builtin.find_files({ no_ignore = true }) end, {})
 vim.keymap.set("n", "<C-f><C-g>", builtin.git_files, {})
 vim.keymap.set("n", "<C-f><C-s>", builtin.live_grep, {})
 vim.keymap.set("n", "<C-f><C-b>", builtin.buffers, {})
