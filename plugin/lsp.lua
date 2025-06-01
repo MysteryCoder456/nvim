@@ -5,7 +5,7 @@ local lsp_on_attach = function(client, bufnr, async)
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, opts)
+    vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = async }) end, opts)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
@@ -18,6 +18,13 @@ local lsp_on_attach = function(client, bufnr, async)
 end
 
 -- Setup LSP handlers
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        lsp_on_attach(client, bufnr, true)
+    end,
+})
 vim.lsp.config("*", {
     on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
     capabilities = cmp_capabilities,
