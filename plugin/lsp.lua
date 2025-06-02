@@ -26,11 +26,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 vim.lsp.config("*", {
-    on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
     capabilities = cmp_capabilities,
 })
 vim.lsp.config("jdtls", {
-    on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
     capabilities = cmp_capabilities,
     single_file_support = true,
 })
