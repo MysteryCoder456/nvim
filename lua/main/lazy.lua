@@ -14,6 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup {
     {
         "rebelot/kanagawa.nvim",
+        "nvim-treesitter/nvim-treesitter-context",
+        "jiangmiao/auto-pairs",
+        "tpope/vim-surround",
+        "lewis6991/gitsigns.nvim",
+        "zbirenbaum/copilot.lua",
     },
     {
         "stevearc/oil.nvim",
@@ -36,14 +41,8 @@ require("lazy").setup {
         end,
     },
     {
-        "nvim-treesitter/nvim-treesitter-context",
-    },
-    {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
-    {
-        "tpope/vim-surround",
     },
     {
         "jiaoshijie/undotree",
@@ -53,9 +52,6 @@ require("lazy").setup {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" },
-    },
-    {
-        "jiangmiao/auto-pairs",
     },
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -78,9 +74,6 @@ require("lazy").setup {
         dependencies = { "SmiteshP/nvim-navic" },
     },
     {
-        "lewis6991/gitsigns.nvim",
-    },
-    {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
@@ -94,19 +87,32 @@ require("lazy").setup {
         "IogaMaster/neocord",
         event = "VeryLazy"
     },
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            { "zbirenbaum/copilot.lua" },
+            { "nvim-lua/plenary.nvim" }, -- for curl, log and async functions
+        },
+        build = "make tiktoken",         -- Only on MacOS or Linux
+        opts = {
+            model = "claude-sonnet-4",
+            window = {
+                width = 0.4,
+            },
+            mappings = {
+                reset = {
+                    normal = "",
+                    insert = "",
+                },
+            },
+        }
+    },
 
     -- LSP Related Plugins --
     {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
-    },
-    {
-        "github/copilot.vim",
-        config = function()
-            -- Disable Copilot on startup
-            vim.cmd [[Copilot disable]]
-        end
     },
     {
         "hrsh7th/nvim-cmp",
