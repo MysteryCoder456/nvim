@@ -21,6 +21,9 @@ require("lazy").setup {
         "zbirenbaum/copilot.lua",
     },
     {
+        "wakatime/vim-wakatime", lazy = false,
+    },
+    {
         "stevearc/oil.nvim",
         opts = {},
         -- Optional dependencies
