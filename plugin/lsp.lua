@@ -100,7 +100,6 @@ null_ls.setup {
     sources = {
         null_ls.builtins.formatting.black.with({ extra_args = { "-l", "79" } }),
         null_ls.builtins.formatting.djlint.with({ filetypes = { "html", "django", "htmldjango" } }),
-        null_ls.builtins.formatting.prettierd.with({ filetypes = { "jsonc", "json", "typescript", "astro", "javascriptreact", "javascript", "typescriptreact", "scss", "vue", "handlebars", "graphql", "svelte", "markdown", "css", "yaml", "less", "markdown.mdx" } }), -- All supported files except html
         null_ls.builtins.diagnostics.checkmake,
         null_ls.builtins.diagnostics.djlint.with({ filetypes = { "html", "django", "htmldjango" } }),
     },
