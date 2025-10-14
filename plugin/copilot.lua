@@ -3,8 +3,8 @@ require("copilot").setup {
         enabled = true,
         auto_refresh = true,
         keymap = {
-            jump_prev = "<C-p>",
-            jump_next = "<C-n>",
+            -- jump_prev = "<C-p>",
+            -- jump_next = "<C-n>",
             accept = "<C-y>",
             -- refresh = "gr",
             -- open = "<leader>cp"
