@@ -5,13 +5,18 @@ local lsp_on_attach = function(client, bufnr, async)
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = async }) end, opts)
+    vim.keymap.set("n", "<leader>f", function()
+        vim.lsp.buf.format({
+            async = async,
+            filter = function(c) return c.name ~= "ts_ls" end
+        })
+    end, opts)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 
     -- Format on save
-    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format({ async = async })]]
+    vim.cmd [[ autocmd BufWritePre * lua vim.lsp.buf.format({ async = async, filter = function(c) return c.name ~= "ts_ls" end }) ]]
 
     -- Inlay hints
     vim.lsp.inlay_hint.enable(true)
