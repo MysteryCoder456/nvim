@@ -98,7 +98,7 @@ require("lazy").setup {
         },
         build = "make tiktoken",         -- Only on MacOS or Linux
         opts = {
-            model = "claude-sonnet-4",
+            model = "claude-opus-4.5",
             window = {
                 width = 0.4,
             },
