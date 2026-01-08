@@ -103,7 +103,6 @@ local null_ls = require("null-ls")
 null_ls.setup {
     on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, false) end,
     sources = {
-        null_ls.builtins.formatting.black.with({ extra_args = { "-l", "79" } }),
         null_ls.builtins.formatting.djlint.with({ filetypes = { "html", "django", "htmldjango" } }),
         null_ls.builtins.diagnostics.checkmake,
         null_ls.builtins.diagnostics.djlint.with({ filetypes = { "html", "django", "htmldjango" } }),
