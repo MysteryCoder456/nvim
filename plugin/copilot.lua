@@ -17,16 +17,16 @@ require("copilot").setup {
     suggestion = {
         enabled = true,
         auto_trigger = true,
-        hide_during_completion = true,
-        debounce = 500,
+        hide_during_completion = false,
+        debounce = 200,
         trigger_on_accept = true,
         keymap = {
             accept = "<Tab>",
             accept_word = false,
             accept_line = false,
-            next = "<C-n>",
-            prev = "<C-p>",
-            dismiss = "<C-]>",
+            next = "<C-]>",
+            prev = "<C-[>",
+            dismiss = "<C-BS>",
         },
     },
     filetypes = {
