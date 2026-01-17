@@ -30,22 +30,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
         lsp_on_attach(client, bufnr, true)
     end,
 })
+
 vim.lsp.config("*", {
     capabilities = cmp_capabilities,
 })
-vim.lsp.config("jdtls", {
+
+vim.lsp.config.jdtls = {
     capabilities = cmp_capabilities,
     single_file_support = true,
-})
-vim.lsp.config("sourcekit", {
+}
+vim.lsp.enable("jdtls")
+
+vim.lsp.config.sourcekit = {
+    cmd = { "sourcekit-lsp" },
+    filetypes = { "swift", "objective-c", "objective-cpp" },
+    root_markers = { "Package.swift", ".git" },
     capabilities = cmp_capabilities,
-    cmd = {
-        "xcrun",
-        "-f",
-        "sourcekit-lsp",
-    },
-    root_markers = { "Package.swift" },
-})
+}
+vim.lsp.enable("sourcekit")
 
 require("mason").setup {}
 require("mason-lspconfig").setup {
