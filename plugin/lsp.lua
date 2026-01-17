@@ -37,6 +37,15 @@ vim.lsp.config("jdtls", {
     capabilities = cmp_capabilities,
     single_file_support = true,
 })
+vim.lsp.config("sourcekit", {
+    capabilities = cmp_capabilities,
+    cmd = {
+        "xcrun",
+        "-f",
+        "sourcekit-lsp",
+    },
+    root_markers = { "Package.swift" },
+})
 
 require("mason").setup {}
 require("mason-lspconfig").setup {
