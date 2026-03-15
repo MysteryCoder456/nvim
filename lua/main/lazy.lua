@@ -98,7 +98,6 @@ require("lazy").setup {
         },
         build = "make tiktoken",         -- Only on MacOS or Linux
         opts = {
-            model = "gpt-5.3-codex",
             window = {
                 width = 0.4,
             },
