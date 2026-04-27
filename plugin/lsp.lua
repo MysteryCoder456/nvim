@@ -77,7 +77,7 @@ cmp.setup {
         documentation = cmp.config.window.bordered({ border = 'rounded' }),
     },
     formatting = {
-        fields = { "icon", "abbr", "kind", "menu" },
+        fields = { "icon", "abbr", "menu" },
         format = lspkind.cmp_format({
             maxwidth = {
                 -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
