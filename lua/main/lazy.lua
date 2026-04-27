@@ -39,9 +39,8 @@ require("lazy").setup {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        config = function()
-            vim.cmd.TSUpdate()
-        end,
+        lazy = false,
+        build = ':TSUpdate',
     },
     {
         "nvim-lualine/lualine.nvim",
