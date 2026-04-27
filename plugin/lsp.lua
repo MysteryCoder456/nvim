@@ -72,8 +72,8 @@ cmp.setup {
         { name = "nvim_lua" },
     },
     window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered({ border = 'rounded' }),
+        documentation = cmp.config.window.bordered({ border = 'rounded' }),
     },
     formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -120,17 +120,8 @@ null_ls.setup {
     },
 }
 
--- Hover window borders
-local _border = "rounded"
-
-local old_hover = vim.lsp.buf.hover
-vim.lsp.buf.hover = function()
-    old_hover({ border = _border })
-end
-
 vim.diagnostic.config {
     virtual_text = true,
-    float = { border = _border }
 }
 
 -- HACK: workaround for neovim issue #30985

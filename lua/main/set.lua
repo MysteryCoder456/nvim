@@ -28,6 +28,8 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.o.winborder = "rounded"
+
 vim.opt.colorcolumn = "0"
 
 vim.g.mapleader = " "
