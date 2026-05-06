@@ -21,8 +21,8 @@ require("copilot").setup {
         debounce = 2000,
         trigger_on_accept = true,
         keymap = {
-            accept = "<Tab>",
-            accept_word = "<A-Tab>",
+            accept = "<A-Tab>",
+            accept_word = "<A-S-Tab>",
             accept_line = false,
             next = "<C-n>",
             prev = "<C-p>",
