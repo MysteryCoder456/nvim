@@ -18,11 +18,11 @@ require("copilot").setup {
         enabled = true,
         auto_trigger = true,
         hide_during_completion = false,
-        debounce = 500,
+        debounce = 2000,
         trigger_on_accept = true,
         keymap = {
             accept = "<Tab>",
-            accept_word = false,
+            accept_word = "<A-Tab>",
             accept_line = false,
             next = "<C-n>",
             prev = "<C-p>",
@@ -69,7 +69,7 @@ require("copilot").setup {
         return true
     end,
     server = {
-        type = "nodejs", -- "nodejs" | "binary"
+        type = "binary", -- "nodejs" | "binary"
         custom_server_filepath = nil,
     },
     server_opts_overrides = {},
