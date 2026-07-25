@@ -18,7 +18,7 @@ require("copilot").setup {
         enabled = true,
         auto_trigger = true,
         hide_during_completion = false,
-        debounce = 2000,
+        debounce = 5000,
         trigger_on_accept = true,
         keymap = {
             accept = "<A-Tab>",
