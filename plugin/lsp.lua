@@ -49,6 +49,15 @@ vim.lsp.config.sourcekit = {
 }
 vim.lsp.enable("sourcekit")
 
+vim.lsp.config.arduino_language_server = {
+    cmd = {
+        "arduino-language-server",
+        "-cli-config", vim.fn.expand("~/Library/Arduino15/arduino-cli.yaml"),
+        "-clangd", "clangd",
+        "-fqbn", "esp32:esp32:esp32",
+    }
+}
+
 require("mason").setup {}
 require("mason-lspconfig").setup {
     automatic_enable = true,
