@@ -35,3 +35,5 @@ vim.opt.colorcolumn = "0"
 vim.g.mapleader = " "
 
 vim.opt.autoread = true
+
+vim.opt.exrc = true
