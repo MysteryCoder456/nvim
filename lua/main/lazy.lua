@@ -108,6 +108,10 @@ require("lazy").setup {
             },
         }
     },
+    {
+        "keith/swift.vim",
+        ft = "swift", -- filetype
+    },
 
     -- LSP Related Plugins --
     {
