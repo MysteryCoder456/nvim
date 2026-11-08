@@ -131,7 +131,7 @@ end)
 
 local null_ls = require("null-ls")
 null_ls.setup {
-    on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, false) end,
+    on_attach = function(client, bufnr) lsp_on_attach(client, bufnr, true) end,
     sources = {
         null_ls.builtins.formatting.biome,
         null_ls.builtins.formatting.djlint.with({ filetypes = { "html", "django", "htmldjango" } }),
